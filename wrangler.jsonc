@@ -1,5 +1,5 @@
 {
-  "name": "seanbirdgame",
+  "name": "seanybirdgitgame",
   "compatibility_date": "2025-08-25",
   "assets": {
     "directory": "./" // or "dist" if you build
