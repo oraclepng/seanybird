@@ -71,6 +71,9 @@ const bg = {
 };
 
 // ------------------ PIPES ------------------
+let timeSinceLastPipe = 0;
+const pipeInterval = 1.7; // seconds between new pipes
+
 const pipe = {
     top: { sprite: new Image() },
     bot: { sprite: new Image() },
@@ -86,12 +89,16 @@ const pipe = {
     },
     update: function (delta) {
         if (state.curr != state.Play) return;
-        if (frames % 100 == 0) {
+
+        timeSinceLastPipe += delta;
+        if (timeSinceLastPipe >= pipeInterval) {
             this.pipes.push({
                 x: parseFloat(scrn.width),
                 y: -210 * Math.min(Math.random() + 1, 1.8) * SCALE_FACTOR,
             });
+            timeSinceLastPipe = 0;
         }
+
         this.pipes.forEach((pipe) => {
             pipe.x -= dx * delta * 60;
         });
