@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -21,31 +20,29 @@
   </style>
 </head>
 <body>
-  <canvas id="canvas" width="276" height="414"></canvas>
-    <script src="game.js"></script>
+  <canvas id="canvas" width="552" height="828"></canvas>
+  <script src="game.js"></script>
   <script>
     const scrn = document.getElementById("canvas");
-const sctx = scrn.getContext("2d");
+    const sctx = scrn.getContext("2d");
 
-function resizeCanvas() {
-    const windowRatio = window.innerWidth / window.innerHeight;
-    const canvasRatio = scrn.width / scrn.height;
+    function resizeCanvas() {
+        const windowRatio = window.innerWidth / window.innerHeight;
+        const canvasRatio = scrn.width / scrn.height;
 
-    if (windowRatio > canvasRatio) {
-        // Window is wider than canvas ratio
-        scrn.style.height = window.innerHeight + "px";
-        scrn.style.width = (window.innerHeight * canvasRatio) + "px";
-    } else {
-        // Window is taller than canvas ratio
-        scrn.style.width = window.innerWidth + "px";
-        scrn.style.height = (window.innerWidth / canvasRatio) + "px";
+        if (windowRatio > canvasRatio) {
+            // Window is wider than canvas ratio
+            scrn.style.height = window.innerHeight + "px";
+            scrn.style.width = (window.innerHeight * canvasRatio) + "px";
+        } else {
+            // Window is taller than canvas ratio
+            scrn.style.width = window.innerWidth + "px";
+            scrn.style.height = (window.innerWidth / canvasRatio) + "px";
+        }
     }
-}
 
-window.addEventListener("resize", resizeCanvas);
-resizeCanvas(); // initial call
-
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas(); // initial call
   </script>
-
 </body>
 </html>
